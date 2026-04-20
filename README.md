@@ -321,6 +321,17 @@ Plusieurs modèles de machine learning ont été utilisés afin de comparer leur
   - Souvent efficace avec des représentations TF-IDF
   - Bonne capacité de généralisation
 
+| Modèle                         | Représentation | Accuracy | Balanced Acc | F1-score | MCC   | ROC-AUC | Commentaire |
+|--------------------------------|---------------|----------|---------------|----------|-------|---------|-------------|
+| Naive Baseline                 | —             | ~50,66 % | ~50 %         | —        | 0     | 0.50    | Référence minimale (classe majoritaire) |
+| Word2Vec + Logistic Regression | W2V           | ~53,05 % | ~52,82 %      | ~60,22 % | 0.06  | ~0.53   | Léger signal, bon rappel mais précision faible |
+| Word2Vec + Random Forest       | W2V           | ~54,38 % | ~54,12 %      | ~61,95 % | 0.09  | ~0.53   | Meilleur modèle W2V, mais gain limité |
+| TF-IDF + Logistic Regression   | TF-IDF        | ~52,52 % | ~52,30 %      | ~59,41 % | 0.05  | ~0.53   | Modèle stable, bon compromis global |
+| TF-IDF + Multinomial NB        | TF-IDF        | ~50,66 % | ~50,00 %      | ~67,25 % | 0.00  | ~0.53   | Prédit presque toujours "Up" → recall élevé mais peu informatif |
+| TF-IDF + Linear SVM            | TF-IDF        | ~52–53 % | ~52 %         | ~59–60 % | ~0.05 | ~0.52   | Performances proches de LogReg |
+| TF-IDF + Random Forest         | TF-IDF        | ~51–52 % | ~51 %         | ~58–60 % | ~0.03 | ~0.51   | Moins efficace que sur W2V |
+
+
 ---
 
 ## Modeling Strategy
