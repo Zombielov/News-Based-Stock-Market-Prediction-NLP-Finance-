@@ -543,9 +543,10 @@ If you added additional folders, explain them.
 
 📌 **Instructions:**  
 Explain how to install project dependencies.
+```bash
 import nltk
 nltk.download("stopwords")
-
+```bash
 import kagglehub
 dataset_path = kagglehub.dataset_download("aaron7sun/stocknews")
 
