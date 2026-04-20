@@ -44,6 +44,7 @@ Ce que le système prédit : À partir des 25 titres les plus populaires du sous
 Analyse technique : Le projet compare l'efficacité de différentes méthodes d'extraction de caractéristiques (TF-IDF vs Word2Vec) couplées à des algorithmes de Machine Learning (Random Forest, SVM, Régression Logistique).
 
 Définition d'une solution réussie : Un modèle performant doit non seulement surpasser le hasard (précision > 50 %) de manière statistiquement significative, mais aussi démontrer sa viabilité via un backtest réaliste, en prouvant que le signal capté peut générer une stratégie de trading positive après déduction des frais de transaction.
+
 ---
 
 # 4. Task Definition
