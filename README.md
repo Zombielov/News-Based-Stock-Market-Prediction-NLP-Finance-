@@ -8,7 +8,7 @@ News-Based Stock Market Prediction
 
 Fill in the following information.
 
-- **Project Title:** [Insert project title]
+- **Project Title:** Analyse prédictive du Dow Jones (DJIA) par le Traitement du Langage Naturel (NLP) : Approches TF-IDF et Word2Vec sur les actualités Reddit.
 - **Group Name:** Group 5
 - **Group Members:**  
   - Student 1 – Alexia Jonquet
