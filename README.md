@@ -555,7 +555,6 @@ nltk.download("stopwords")
 
 import kagglehub
 dataset_path = kagglehub.dataset_download("aaron7sun/stocknews")
-Example:
 
 ```bash
 pip install gensim scikit-learn tqdm nltk
