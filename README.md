@@ -395,6 +395,18 @@ Plusieurs métriques ont été utilisées afin d’évaluer les performances des
 - **Brier Score**
   - Mesure la qualité des probabilités prédites
   - Évalue la calibration du modèle
+ 
+
+| Métrique              | Valeur (meilleur modèle test) | Justification |
+|----------------------|------------------------------|---------------|
+| Accuracy             | 51,72 % (TF-IDF + RF)        | Métrique principale — baseline naïve ≈ 50,66 % |
+| Balanced Accuracy    | 51,46 %                      | Corrige le léger déséquilibre de classes |
+| Precision / Recall   | 51,70 % / 71,73 %            | Biais du modèle vers la détection des hausses |
+| F1-score             | 60,09 %                      | Compromis précision / rappel |
+| MCC (Matthews CC)    | 0,032                        | Métrique robuste aux déséquilibres — valeur proche de 0 indique peu de signal |
+| ROC-AUC              | 51,78 %                      | Capacité de discrimination — à peine au-dessus du hasard (50 %) |
+| PR-AUC               | 51,56 %                      | Qualité probabiliste sur la classe positive |
+| Brier Score          | 25,42 %                      | Calibration probabiliste (0 = parfait, 0.25 = baseline) |
 
 ---
 
