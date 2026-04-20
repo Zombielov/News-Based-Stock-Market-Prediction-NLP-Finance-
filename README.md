@@ -6,8 +6,6 @@ News-Based Stock Market Prediction
 
 # 1. Project Information
 
-Fill in the following information.
-
 - **Project Title:** Analyse prédictive du Dow Jones (DJIA) par le Traitement du Langage Naturel (NLP) : Approches TF-IDF et Word2Vec sur les actualités Reddit.
 - **Group Name:** Group 5
 - **Group Members:**  
@@ -25,9 +23,6 @@ Fill in the following information.
 
 # 2. Project Description
 
-
-✏️ **Write your description below:**
-
 Le problème central repose sur l'Hypothèse d'Efficience du Marché, qui suggère que toute information publique est déjà intégrée dans les cours. Ce projet explore si les techniques modernes de NLP peuvent néanmoins extraire un « signal » prédictif dans le bruit médiatique pour obtenir un avantage concurrentiel. Cette question est cruciale pour les traders quantitatifs, les analystes financiers et les data scientists, car une amélioration même légère de la précision peut se traduire par des gains économiques significatifs lors d'une application à grande échelle.
 
 Include:
@@ -39,8 +34,6 @@ Include:
 ---
 
 # 3. Project Goal
-
-✏️ **Write your project goal below:**
 
 Ce projet a pour objectif de développer un système de classification binaire capable de prédire la direction quotidienne de l'indice boursier Dow Jones (DJIA) à partir de l'analyse textuelle des actualités mondiales.
 
@@ -55,17 +48,9 @@ Définition d'une solution réussie : Un modèle performant doit non seulement s
 
 # 4. Task Definition
 
-📌 **Instructions:**  
 Define the **machine learning or data analysis task**.
 
 Specify:
-
-- **Task Type:** (classification, regression, clustering, etc.)
-- **Input:** What data is used as input
-- **Output:** What the model predicts
-- **Evaluation Metric:** How performance will be measured
-
-✏️ **Fill in the following:**
 
 - **Task Type:**  Classification binaire (supervised learning)
 - **Input Variables:**  Les données d’entrée sont les 25 headlines Reddit par jour, prétraitées puis transformées en représentations numériques :
@@ -85,9 +70,6 @@ PR-AUC et Brier Score (qualité probabiliste)
 ---
 
 # 5. Dataset Description
-
-📌 **Instructions:**  
-Describe the dataset used in the project.
 
 Le dataset utilisé dans ce projet est composé de deux sources de données synchronisées dans le temps :
 
@@ -111,10 +93,6 @@ Ces données permettent de construire la variable cible (direction du marché).
 
 ## Dataset Overview
 
-Provide general information about the dataset.
-
-Fill in:
-
 - **Number of samples:**  Environ 1989 observations (jours)
 - **Number of features:**  25 variables textuelles (Top1 à Top25 : headlines quotidiennes)
 variables financières (Open, Close, High, Low, Volume)
@@ -126,19 +104,6 @@ variables construites (tokens, TF-IDF, embeddings Word2Vec)
 https://www.kaggle.com/datasets/aaron7sun/stocknews
 
 ---
-
-## Feature Description
-
-📌 **Instructions:**  
-List and describe the most important variables.
-
-Example table:
-
-| Feature | Description | Type |
-|------|------|------|
-| age | Age of individual | Numerical |
-| income | Annual income | Numerical |
-| gender | Gender category | Categorical |
 
 ## Feature Description
 
@@ -159,9 +124,6 @@ Example table:
 | Target_tomorrow    | Direction du marché (1 = hausse, 0 = baisse)                               | Catégorielle (binaire) |
 
 ## Target Variable
-
-📌 **Instructions:**  
-Explain what the model is trying to predict.
 
 Include:
 
@@ -187,18 +149,6 @@ Il s’agit donc d’un problème de classification binaire, avec deux classes p
 
 ## Data Types
 
-📌 **Instructions:**  
-Describe the types of variables present in the dataset.
-
-Examples:
-
-- Numerical
-- Categorical
-- Ordinal
-- Text
-- Time-series
-
-
 - **Variables temporelles (Time-series)**
   - **Date** : représente le jour de trading.
 
@@ -223,16 +173,6 @@ Examples:
 
 ## Data Distribution
 
-📌 **Instructions:**  
-Describe important distribution characteristics.
-
-Examples:
-
-- Class balance or imbalance
-- Skewed numerical variables
-- Range of key features
-
-✏️ **Describe the data distribution here**
 - **Équilibre des classes (Target_tomorrow)**
   - ~53 % de jours de hausse (1)
   - ~47 % de jours de baisse (0)
@@ -257,17 +197,6 @@ Examples:
 
 ## Data Quality
 
-📌 **Instructions:**  
-Mention any issues found in the dataset.
-
-Examples:
-
-- Missing values
-- Outliers
-- Imbalanced classes
-- Duplicate entries
-
-✏️ **Describe any data quality issues here**
 - **Valeurs manquantes**
   - Quelques valeurs manquantes dans certaines colonnes de headlines (Top23 à Top25)
   - Nombre très faible (moins de 10 au total)
@@ -300,20 +229,6 @@ Examples:
 
 # 6. Data Preprocessing
 
-📌 **Instructions:**  
-Explain the preprocessing steps applied before modeling.
-
-Examples:
-
-- Handling missing values
-- Removing duplicates
-- Encoding categorical variables
-- Normalizing or scaling features
-- Feature engineering
-
-For each step briefly explain **why it was necessary**.
-
-✏️ **Describe your preprocessing steps here**
 Plusieurs étapes de preprocessing ont été appliquées afin de préparer les données avant la modélisation :
 
 - **Gestion des valeurs manquantes**
@@ -367,8 +282,6 @@ Plusieurs étapes de preprocessing ont été appliquées afin de préparer les d
 
 # 7. Modeling Approach
 
-📌 **Instructions:**  
-Explain how you solved the problem.
 Pour résoudre le problème de prédiction de la direction du marché, nous avons adopté une approche de **classification supervisée** combinant des techniques de NLP et des modèles de machine learning.
 
 Le texte ne pouvant pas être utilisé directement, il a été transformé en variables numériques via deux approches :
@@ -385,17 +298,6 @@ Le texte ne pouvant pas être utilisé directement, il a été transformé en va
 
 ## Chosen Models
 
-List the models or algorithms used.
-
-Examples:
-
-- Linear Regression
-- Logistic Regression
-- Random Forest
-- Gradient Boosting
-- Neural Networks
-
-✏️ **List and describe the models used**
 Plusieurs modèles de machine learning ont été utilisés afin de comparer leurs performances sur les données textuelles :
 
 - **Logistic Regression**
@@ -422,15 +324,6 @@ Plusieurs modèles de machine learning ont été utilisés afin de comparer leur
 
 ## Modeling Strategy
 
-📌 **Instructions:**  
-Explain:
-
-- Why you selected these models
-- Whether you used a baseline model
-- If hyperparameter tuning was performed
-- Whether cross-validation was used
-
-✏️ **Explain your modeling strategy**
 Un modèle de référence (**baseline**) a été utilisé :
 
 - **Dummy Classifier (classe majoritaire)**
@@ -465,21 +358,6 @@ Important car :
 
 ## Evaluation Metrics
 
-📌 **Instructions:**  
-Specify the metrics used to evaluate model performance.
-
-Examples:
-
-- Accuracy
-- Precision / Recall
-- F1-score
-- ROC-AUC
-- Mean Absolute Error
-- RMSE
-
-Also explain **why these metrics are appropriate**.
-
-✏️ **Describe your evaluation metrics**
 Plusieurs métriques ont été utilisées afin d’évaluer les performances des modèles de manière complète :
 
 - **Accuracy**
@@ -522,17 +400,13 @@ Plusieurs métriques ont été utilisées afin d’évaluer les performances des
 
 # 8. Project Structure
 
-📌 **Instructions:**  
-Explain how the repository is organized.
-  Notebook principal contenant :
+- Notebook principal contenant :
   - chargement des données  
   - preprocessing  
   - feature engineering (TF-IDF, Word2Vec)  
   - modélisation  
   - évaluation des performances  
 
-
-If you added additional folders, explain them.
 - **daily-news-for-stock-market-prediction.ipynb**    
 
 - **djia-stock-nlp-forecast-using-news.ipynb**  
@@ -541,12 +415,9 @@ If you added additional folders, explain them.
 
 # 9. Installation
 
-📌 **Instructions:**  
-Explain how to install project dependencies.
-```bash
 import nltk
 nltk.download("stopwords")
-```bash
+
 import kagglehub
 dataset_path = kagglehub.dataset_download("aaron7sun/stocknews")
 
