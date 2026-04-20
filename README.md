@@ -206,7 +206,20 @@ Examples:
 - Time-series
 
 ✏️ **Describe the column types here**
-
+Variables temporelles (Time-series)
+Date : représente le jour de trading.
+Variables textuelles (Text)
+Top1 à Top25 : titres d’actualité Reddit
+corpus_raw / corpus_stemmed : texte combiné des headlines
+tokens_raw / tokens_stemmed : listes de mots après preprocessing
+Variables numériques (Numerical)
+Open, Close, High, Low : prix du Dow Jones
+Volume : volume de transactions
+Return_tomorrow : rendement du marché le lendemain
+Variable catégorielle (Categorical / binaire)
+Target_tomorrow : direction du marché
+1 = hausse
+0 = baisse
 ---
 
 ## Data Distribution
