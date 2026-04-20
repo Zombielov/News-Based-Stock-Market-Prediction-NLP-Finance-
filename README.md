@@ -43,23 +43,20 @@ Ce projet explore l'utilisation du Traitement du Langage Naturel (NLP) et du Mac
 # 3. Project Goal
 
 📌 **Instructions:**  
-Clearly explain **what the project aims to achieve**.
+Ce projet a pour objectif de développer un système de classification binaire capable de prédire la direction quotidienne de l'indice boursier Dow Jones (DJIA) à partir de l'analyse textuelle des actualités mondiales.
 
-Your answer should describe:
+Voici les composantes clés de cet objectif :
 
-- What the system predicts, classifies, or analyzes
-- What a successful solution looks like
+Ce que le système prédit : À partir des 25 titres les plus populaires du sous-reddit r/worldnews, le modèle détermine si le marché finira en hausse ou stable (Label 1) ou en baisse (Label 0) pour la séance suivante.
 
-Example goals:
+Analyse technique : Le projet compare l'efficacité de différentes méthodes d'extraction de caractéristiques (TF-IDF vs Word2Vec) couplées à des algorithmes de Machine Learning (Random Forest, SVM, Régression Logistique).
 
-- Predict housing prices from property features
-- Classify medical images into disease categories
-- Detect sentiment in text reviews
-- Forecast electricity consumption
+Définition d'une solution réussie : Un modèle performant doit non seulement surpasser le hasard (précision > 50 %) de manière statistiquement significative, mais aussi démontrer sa viabilité via un backtest réaliste, en prouvant que le signal capté peut générer une stratégie de trading positive après déduction des frais de transaction.
+
 
 ✏️ **Write your project goal below:**
 
-[Replace this text with the goal of your project]
+L’objectif est de prédire si le Dow Jones va monter ou baisser le lendemain à partir des news quotidiennes, et d’évaluer si ces informations contiennent un signal prédictif utile.
 
 ---
 
@@ -77,10 +74,20 @@ Specify:
 
 ✏️ **Fill in the following:**
 
-- **Task Type:**  
-- **Input Variables:**  
-- **Target Variable:**  
-- **Evaluation Metric(s):**
+- **Task Type:**  Classification binaire (supervised learning)
+- **Input Variables:**  Les données d’entrée sont les 25 headlines Reddit par jour, prétraitées puis transformées en représentations numériques :
+soit via Word2Vec (moyenne des embeddings des mots),
+soit via TF-IDF (vecteurs de fréquences pondérées des mots et bigrammes)
+- **Target Variable:**  Une variable binaire appelée Target_tomorrow, qui indique la direction du marché le lendemain :
+1 → le marché monte (Close(t+1) > Close(t))
+0 → le marché baisse
+- **Evaluation Metric(s):** Plusieurs métriques sont utilisées pour évaluer les performances du modèle :
+Accuracy (métrique principale, baseline ≈ 50%)
+Balanced Accuracy (corrige un éventuel déséquilibre)
+Precision / Recall / F1-score
+ROC-AUC (capacité de discrimination)
+MCC (Matthews Correlation Coefficient) → métrique robuste
+PR-AUC et Brier Score (qualité probabiliste)
 
 ---
 
