@@ -205,7 +205,6 @@ Examples:
 - Text
 - Time-series
 
-✏️ **Describe the column types here**
 Variables temporelles (Time-series)
 Date : représente le jour de trading.
 Variables textuelles (Text)
@@ -220,6 +219,9 @@ Variable catégorielle (Categorical / binaire)
 Target_tomorrow : direction du marché
 1 = hausse
 0 = baisse
+
+
+
 ---
 
 ## Data Distribution
