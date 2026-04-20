@@ -26,17 +26,17 @@ Fill in the following information.
 # 2. Project Description
 
 📌 **Instructions:**  
-Write a short paragraph explaining the **problem addressed by the project**.
+Le problème central repose sur l'Hypothèse d'Efficience du Marché, qui suggère que toute information publique est déjà intégrée dans les cours. Ce projet explore si les techniques modernes de NLP peuvent néanmoins extraire un « signal » prédictif dans le bruit médiatique pour obtenir un avantage concurrentiel. Cette question est cruciale pour les traders quantitatifs, les analystes financiers et les data scientists, car une amélioration même légère de la précision peut se traduire par des gains économiques significatifs lors d'une application à grande échelle.
 
 Include:
 
-- The context of the problem
-- Why the problem is interesting or important
-- Who might benefit from solving it
+- The context of the problem : L'utilisation des 25 meilleurs titres d'actualité quotidiens pour prévoir la clôture du marché.
+- Why the problem is interesting or important : Tester l'efficience du marché face aux nouvelles publiques et la capacité des modèles (Random Forest, TF-IDF, Word2Vec) à extraire un signal exploitable.
+- Who might benefit from solving it : Acteurs de la finance (investisseurs, quants) et chercheurs en IA appliquée à l'économie.
 
 ✏️ **Write your description below:**
 
-[Replace this text with your project description]
+Ce projet explore l'utilisation du Traitement du Langage Naturel (NLP) et du Machine Learning pour prédire les mouvements quotidiens de l'indice boursier Dow Jones Industrial Average (DJIA). L'objectif principal est de déterminer si les informations textuelles contenues dans les titres de l'actualité mondiale peuvent servir d'indicateurs fiables pour anticiper la clôture des marchés financiers.
 
 ---
 
