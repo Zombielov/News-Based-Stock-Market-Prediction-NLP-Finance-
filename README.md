@@ -86,7 +86,7 @@ Accuracy (métrique principale, baseline ≈ 50%)
 Balanced Accuracy (corrige un éventuel déséquilibre)
 Precision / Recall / F1-score
 ROC-AUC (capacité de discrimination)
-MCC (Matthews Correlation Coefficient) → métrique robuste
+MCC (Matthews Correlation Coefficient) 
 PR-AUC et Brier Score (qualité probabiliste)
 
 ---
@@ -205,20 +205,24 @@ Examples:
 - Text
 - Time-series
 
-Variables temporelles (Time-series)
-Date : représente le jour de trading.
-Variables textuelles (Text)
-Top1 à Top25 : titres d’actualité Reddit
-corpus_raw / corpus_stemmed : texte combiné des headlines
-tokens_raw / tokens_stemmed : listes de mots après preprocessing
-Variables numériques (Numerical)
-Open, Close, High, Low : prix du Dow Jones
-Volume : volume de transactions
-Return_tomorrow : rendement du marché le lendemain
-Variable catégorielle (Categorical / binaire)
-Target_tomorrow : direction du marché
-1 = hausse
-0 = baisse
+
+- **Variables temporelles (Time-series)**
+  - **Date** : représente le jour de trading.
+
+- **Variables textuelles (Text)**
+  - **Top1 à Top25** : titres d’actualité Reddit  
+  - **corpus_raw / corpus_stemmed** : texte combiné des headlines  
+  - **tokens_raw / tokens_stemmed** : listes de mots après preprocessing  
+
+- **Variables numériques (Numerical)**
+  - **Open, Close, High, Low** : prix du Dow Jones  
+  - **Volume** : volume de transactions  
+  - **Return_tomorrow** : rendement du marché le lendemain  
+
+- **Variable catégorielle (Categorical / binaire)**
+  - **Target_tomorrow** : direction du marché  
+    - **1** = hausse  
+    - **0** = baisse  
 
 
 
