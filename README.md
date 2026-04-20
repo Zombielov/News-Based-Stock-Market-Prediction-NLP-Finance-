@@ -96,8 +96,24 @@ PR-AUC et Brier Score (qualité probabiliste)
 📌 **Instructions:**  
 Describe the dataset used in the project.
 
-❗ Do **not simply name the dataset**. Instead explain its structure and contents.
+Le dataset utilisé dans ce projet est composé de deux sources de données synchronisées dans le temps :
 
+Données textuelles (news)
+Chaque observation correspond à un jour de trading et contient :
+une date
+un label binaire indiquant la direction du marché (0 = baisse, 1 = hausse)
+25 titres d’actualité (headlines) issus de Reddit (subreddit WorldNews)
+
+Ces 25 titres représentent l’ensemble des informations marquantes du jour. Ils sont concaténés pour former un document unique, qui sert d’entrée au modèle.
+
+Données financières (marché)
+Pour chaque date, on dispose des informations du Dow Jones :
+prix d’ouverture (Open)
+prix de clôture (Close)
+plus haut (High), plus bas (Low)
+volume
+
+Ces données permettent de construire la variable cible (direction du marché).
 ---
 
 ## Dataset Overview
@@ -106,10 +122,15 @@ Provide general information about the dataset.
 
 Fill in:
 
-- **Number of samples:**  
-- **Number of features:**  
-- **Target variable:**  
-- **Data source:** [Link if applicable]
+- **Number of samples:**  Environ 1989 observations (jours)
+- **Number of features:**  25 variables textuelles (Top1 à Top25 : headlines quotidiennes)
+variables financières (Open, Close, High, Low, Volume)
+variables construites (tokens, TF-IDF, embeddings Word2Vec)
+- **Target variable:**  Target_tomorrow (variable binaire) :
+1 → le marché monte le lendemain
+0 → le marché baisse le lendemain
+- **Data source:** Dataset Kaggle :
+https://www.kaggle.com/datasets/aaron7sun/stocknews
 
 ---
 
