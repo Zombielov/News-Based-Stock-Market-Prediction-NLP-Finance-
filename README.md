@@ -1,6 +1,11 @@
 News-Based Stock Market Prediction
 
 
+### Installation
+pip install gensim scikit-learn tqdm nltk kagglehub
+
+### Run
+jupyter notebook Projet_AI_Final.ipynb
 
 ---
 
