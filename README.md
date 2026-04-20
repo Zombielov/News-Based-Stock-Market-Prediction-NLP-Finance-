@@ -148,7 +148,7 @@ Example table:
 | gender | Gender category | Categorical |
 
 ✏️ **Insert your feature description table here**
-Feature	| Description	| Type
+| Feature	| Description	| Type |
 Date	| Date de l’observation (jour de trading)	| Temporelle
 Top1 – Top25 |	25 titres d’actualité Reddit du jour	| Texte
 corpus_raw	| Texte combiné des headlines (sans stemming, utilisé pour Word2Vec)	| Texte
