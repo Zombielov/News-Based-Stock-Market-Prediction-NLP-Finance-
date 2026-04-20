@@ -147,7 +147,6 @@ Example table:
 | income | Annual income | Numerical |
 | gender | Gender category | Categorical |
 
-✏️ **Insert your feature description table here**
 ## Feature Description
 
 | Feature            | Description                                                                 | Type                   |
@@ -177,7 +176,19 @@ Include:
 - Meaning
 - Possible values (if classification)
 
-✏️ **Write your explanation here**
+La variable cible utilisée dans ce projet est appelée Target_tomorrow.
+
+Elle représente la direction du marché boursier (Dow Jones) le lendemain par rapport au jour courant.
+
+Plus précisément, cette variable est définie à partir du rendement du marché entre deux jours consécutifs :
+
+Si le prix de clôture du lendemain est supérieur à celui du jour courant → Target_tomorrow = 1 (marché en hausse)
+Sinon → Target_tomorrow = 0 (marché en baisse)
+
+Il s’agit donc d’un problème de classification binaire, avec deux classes possibles :
+
+1 : Up (hausse du marché)
+0 : Down (baisse du marché)
 
 ---
 
