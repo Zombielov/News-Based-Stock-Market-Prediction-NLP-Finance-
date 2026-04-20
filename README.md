@@ -240,6 +240,25 @@ Examples:
 - Range of key features
 
 ✏️ **Describe the data distribution here**
+- **Équilibre des classes (Target_tomorrow)**
+  - ~53 % de jours de hausse (1)
+  - ~47 % de jours de baisse (0)
+  - Dataset globalement équilibré → baseline ≈ 50 %
+
+- **Distribution temporelle**
+  - Période : 2008 – 2016
+  - Inclut plusieurs régimes de marché (crise, reprise, stabilité)
+  - Données séquentielles → dépendances temporelles
+
+- **Variables numériques**
+  - Prix (Open, Close, High, Low) : valeurs élevées (indice Dow Jones)
+  - Volume : très variable
+  - Return_tomorrow : faible amplitude, centré autour de 0
+
+- **Données textuelles**
+  - Headlines très variées et bruitées
+  - Vocabulaire riche (~18 000 mots)
+  - Signal faible et difficile à exploiter
 
 ---
 
@@ -256,7 +275,34 @@ Examples:
 - Duplicate entries
 
 ✏️ **Describe any data quality issues here**
+- **Valeurs manquantes**
+  - Quelques valeurs manquantes dans certaines colonnes de headlines (Top23 à Top25)
+  - Nombre très faible (moins de 10 au total)
+  - Traitement : remplacement par des chaînes vides
 
+- **Doublons**
+  - Aucun doublon détecté dans les données (news et prix)
+
+- **Cohérence des données**
+  - Forte cohérence entre le label et la direction du marché (~98%)
+  - Quelques incohérences (~32 observations) dues à :
+    - décalages temporels
+    - bruit dans les données
+
+- **Équilibre des classes**
+  - Dataset légèrement déséquilibré mais proche de l’équilibre :
+    - ~53% hausse
+    - ~47% baisse
+  - Pas de problème majeur de déséquilibre
+
+- **Données textuelles bruitées**
+  - Headlines hétérogènes (politique, économie, événements divers)
+  - Certaines informations peu pertinentes pour le marché
+  - Présence de bruit, redondance et langage non structuré
+
+- **Outliers**
+  - Pas d’outliers majeurs détectés dans les variables numériques
+  - Les variations extrêmes peuvent être liées à des événements de marché réels
 ---
 
 # 6. Data Preprocessing
@@ -275,14 +321,73 @@ Examples:
 For each step briefly explain **why it was necessary**.
 
 ✏️ **Describe your preprocessing steps here**
+Plusieurs étapes de preprocessing ont été appliquées afin de préparer les données avant la modélisation :
 
+- **Gestion des valeurs manquantes**
+  - Remplacement des valeurs manquantes dans les headlines par des chaînes vides
+  - Nécessaire pour éviter des erreurs lors du traitement du texte
+
+- **Vérification des doublons**
+  - Aucun doublon détecté dans les datasets (news et prix)
+  - Permet de garantir la qualité et l’unicité des observations
+
+- **Nettoyage du texte**
+  - Conversion en minuscules
+  - Suppression de la ponctuation et des caractères spéciaux
+  - Permet de standardiser le texte et réduire le bruit
+
+- **Suppression des stopwords**
+  - Suppression des mots fréquents non informatifs (ex : "the", "is")
+  - Améliore la qualité du signal utile pour le modèle
+
+- **Tokenisation**
+  - Transformation du texte en liste de mots (tokens)
+  - Nécessaire pour appliquer les méthodes NLP
+
+- **Stemming**
+  - Réduction des mots à leur racine (ex : "running" → "run")
+  - Permet de regrouper les variantes d’un même mot
+
+- **Création de deux représentations du texte**
+  - **Sans stemming (tokens_raw)** → utilisé pour Word2Vec  
+  - **Avec stemming (tokens_stemmed)** → utilisé pour TF-IDF  
+  - Adaptation du preprocessing selon la méthode NLP utilisée
+
+- **Construction de la variable cible**
+  - Création de `Target_tomorrow` basée sur le rendement du lendemain
+  - Permet de prédire le futur et éviter le look-ahead bias
+
+- **Split temporel des données**
+  - Train : données avant 2015  
+  - Test : données après 2015  
+  - Respect de l’ordre temporel (pas de fuite d’information)
+
+- **Feature engineering (NLP)**
+  - TF-IDF (vecteurs de mots pondérés)
+  - Word2Vec (embeddings de mots)
+  - Transformation du texte en variables numériques exploitables
+
+- **Standardisation (Word2Vec)**
+  - Application d’un StandardScaler avant la régression logistique
+  - Améliore la convergence et les performances du modèle
 ---
 
 # 7. Modeling Approach
 
 📌 **Instructions:**  
 Explain how you solved the problem.
+Pour résoudre le problème de prédiction de la direction du marché, nous avons adopté une approche de **classification supervisée** combinant des techniques de NLP et des modèles de machine learning.
 
+Le texte ne pouvant pas être utilisé directement, il a été transformé en variables numériques via deux approches :
+
+- **TF-IDF**
+  - Représentation basée sur la fréquence des mots et des bigrammes
+  - Capture les cooccurrences locales du vocabulaire
+
+- **Word2Vec**
+  - Représentation dense des mots (embeddings)
+  - Chaque document est représenté par la moyenne des vecteurs de ses mots
+  - Capture les relations sémantiques entre les mots
 ---
 
 ## Chosen Models
@@ -298,6 +403,27 @@ Examples:
 - Neural Networks
 
 ✏️ **List and describe the models used**
+Plusieurs modèles de machine learning ont été utilisés afin de comparer leurs performances sur les données textuelles :
+
+- **Logistic Regression**
+  - Modèle linéaire de classification
+  - Sert de baseline solide pour les problèmes NLP
+  - Interprétable et rapide à entraîner
+
+- **Random Forest**
+  - Ensemble de plusieurs arbres de décision
+  - Capable de capturer des relations non linéaires
+  - Robuste au bruit mais peut surapprendre
+
+- **Multinomial Naive Bayes**
+  - Modèle probabiliste adapté aux données textuelles (TF-IDF)
+  - Rapide et efficace sur des données de grande dimension
+  - Hypothèse d’indépendance des mots
+
+- **Linear SVM (Support Vector Machine)**
+  - Modèle linéaire performant pour les données à haute dimension
+  - Souvent efficace avec des représentations TF-IDF
+  - Bonne capacité de généralisation
 
 ---
 
@@ -312,7 +438,36 @@ Explain:
 - Whether cross-validation was used
 
 ✏️ **Explain your modeling strategy**
+Un modèle de référence (**baseline**) a été utilisé :
 
+- **Dummy Classifier (classe majoritaire)**
+  - Prédit toujours la classe la plus fréquente
+  - Performance ≈ **50% d’accuracy**
+
+Permet de vérifier que les modèles apprennent mieux que le hasard.
+
+---
+
+### Hyperparameter tuning
+
+- Aucun tuning complexe n’a été réalisé
+- Des paramètres standards ont été utilisés (ex : nombre d’arbres pour Random Forest, régularisation pour Logistic Regression)
+
+Choix volontaire pour :
+- garder une approche simple
+- éviter l’overfitting
+- se concentrer sur la comparaison des modèles
+
+---
+
+### Validation croisée
+
+- Utilisation de **TimeSeriesSplit**
+- Validation croisée adaptée aux séries temporelles
+
+Important car :
+- respecte l’ordre chronologique
+- évite la fuite d’information (data leakage)
 ---
 
 ## Evaluation Metrics
@@ -332,6 +487,43 @@ Examples:
 Also explain **why these metrics are appropriate**.
 
 ✏️ **Describe your evaluation metrics**
+Plusieurs métriques ont été utilisées afin d’évaluer les performances des modèles de manière complète :
+
+- **Accuracy**
+  - Proportion de bonnes prédictions
+  - Simple à interpréter et utile comme première référence
+
+- **Balanced Accuracy**
+  - Moyenne des taux de bonne classification par classe
+  - Permet de corriger un éventuel déséquilibre entre les classes
+
+- **Precision**
+  - Proportion de prédictions positives correctes
+  - Important pour éviter les faux signaux de hausse
+
+- **Recall**
+  - Capacité à détecter les jours où le marché monte
+  - Utile pour ne pas manquer des opportunités
+
+- **F1-score**
+  - Moyenne harmonique entre précision et rappel
+  - Donne un bon compromis entre les deux
+
+- **ROC-AUC**
+  - Mesure la capacité du modèle à discriminer entre les classes
+  - Indépendant du seuil de classification
+
+- **PR-AUC**
+  - Aire sous la courbe précision-rappel
+  - Pertinent pour évaluer les performances sur les classes positives
+
+- **MCC (Matthews Correlation Coefficient)**
+  - Mesure robuste prenant en compte toutes les erreurs
+  - Adapté aux problèmes de classification binaire
+
+- **Brier Score**
+  - Mesure la qualité des probabilités prédites
+  - Évalue la calibration du modèle
 
 ---
 
@@ -339,9 +531,18 @@ Also explain **why these metrics are appropriate**.
 
 📌 **Instructions:**  
 Explain how the repository is organized.
+  Notebook principal contenant :
+  - chargement des données  
+  - preprocessing  
+  - feature engineering (TF-IDF, Word2Vec)  
+  - modélisation  
+  - évaluation des performances  
 
 
 If you added additional folders, explain them.
+- **daily-news-for-stock-market-prediction.ipynb**    
+
+- **djia-stock-nlp-forecast-using-news.ipynb**  
 
 ---
 
@@ -349,8 +550,12 @@ If you added additional folders, explain them.
 
 📌 **Instructions:**  
 Explain how to install project dependencies.
+import nltk
+nltk.download("stopwords")
 
+import kagglehub
+dataset_path = kagglehub.dataset_download("aaron7sun/stocknews")
 Example:
 
 ```bash
-pip install -r requirements.txt
+pip install gensim scikit-learn tqdm nltk
