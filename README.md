@@ -25,7 +25,9 @@ Fill in the following information.
 
 # 2. Project Description
 
-📌 **Instructions:**  
+
+✏️ **Write your description below:**
+
 Le problème central repose sur l'Hypothèse d'Efficience du Marché, qui suggère que toute information publique est déjà intégrée dans les cours. Ce projet explore si les techniques modernes de NLP peuvent néanmoins extraire un « signal » prédictif dans le bruit médiatique pour obtenir un avantage concurrentiel. Cette question est cruciale pour les traders quantitatifs, les analystes financiers et les data scientists, car une amélioration même légère de la précision peut se traduire par des gains économiques significatifs lors d'une application à grande échelle.
 
 Include:
@@ -34,15 +36,12 @@ Include:
 - Why the problem is interesting or important : Tester l'efficience du marché face aux nouvelles publiques et la capacité des modèles (Random Forest, TF-IDF, Word2Vec) à extraire un signal exploitable.
 - Who might benefit from solving it : Acteurs de la finance (investisseurs, quants) et chercheurs en IA appliquée à l'économie.
 
-✏️ **Write your description below:**
-
-Ce projet explore l'utilisation du Traitement du Langage Naturel (NLP) et du Machine Learning pour prédire les mouvements quotidiens de l'indice boursier Dow Jones Industrial Average (DJIA). L'objectif principal est de déterminer si les informations textuelles contenues dans les titres de l'actualité mondiale peuvent servir d'indicateurs fiables pour anticiper la clôture des marchés financiers.
-
 ---
 
 # 3. Project Goal
 
-📌 **Instructions:**  
+✏️ **Write your project goal below:**
+
 Ce projet a pour objectif de développer un système de classification binaire capable de prédire la direction quotidienne de l'indice boursier Dow Jones (DJIA) à partir de l'analyse textuelle des actualités mondiales.
 
 Voici les composantes clés de cet objectif :
@@ -52,12 +51,6 @@ Ce que le système prédit : À partir des 25 titres les plus populaires du sous
 Analyse technique : Le projet compare l'efficacité de différentes méthodes d'extraction de caractéristiques (TF-IDF vs Word2Vec) couplées à des algorithmes de Machine Learning (Random Forest, SVM, Régression Logistique).
 
 Définition d'une solution réussie : Un modèle performant doit non seulement surpasser le hasard (précision > 50 %) de manière statistiquement significative, mais aussi démontrer sa viabilité via un backtest réaliste, en prouvant que le signal capté peut générer une stratégie de trading positive après déduction des frais de transaction.
-
-
-✏️ **Write your project goal below:**
-
-L’objectif est de prédire si le Dow Jones va monter ou baisser le lendemain à partir des news quotidiennes, et d’évaluer si ces informations contiennent un signal prédictif utile.
-
 ---
 
 # 4. Task Definition
