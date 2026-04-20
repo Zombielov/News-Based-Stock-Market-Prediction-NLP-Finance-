@@ -148,21 +148,23 @@ Example table:
 | gender | Gender category | Categorical |
 
 ✏️ **Insert your feature description table here**
-| Feature	| Description	| Type |
-Date	| Date de l’observation (jour de trading)	| Temporelle
-Top1 – Top25 |	25 titres d’actualité Reddit du jour	| Texte
-corpus_raw	| Texte combiné des headlines (sans stemming, utilisé pour Word2Vec)	| Texte
-corpus_stemmed	| Texte combiné avec stemming (utilisé pour TF-IDF) |	Texte
-tokens_raw	| Liste de mots nettoyés (sans stopwords, sans stemming)	| Texte (liste)
-tokens_stemmed	| Liste de mots avec stemming	| Texte (liste)
-Open |	Prix d’ouverture du Dow Jones	| Numérique
-Close |	Prix de clôture du Dow Jones | Numérique
-High |	Prix maximum de la journée	| Numérique
-Low |	Prix minimum de la journée	| Numérique
-Volume	| Volume de transactions |	Numérique
-Return_tomorrow	| Rendement du marché le lendemain |	Numérique
-Target_tomorrow	| Direction du marché le lendemain (1 = hausse, 0 = baisse)	| Catégorielle (binaire)
----
+## Feature Description
+
+| Feature            | Description                                                                 | Type                   |
+|--------------------|-----------------------------------------------------------------------------|------------------------|
+| Date               | Date de l’observation (jour de trading)                                    | Temporelle             |
+| Top1 – Top25       | 25 titres d’actualité Reddit du jour                                       | Texte                  |
+| corpus_raw         | Texte combiné des headlines (Word2Vec)                                     | Texte                  |
+| corpus_stemmed     | Texte combiné avec stemming (TF-IDF)                                       | Texte                  |
+| tokens_raw         | Liste de mots nettoyés                                                     | Texte (liste)          |
+| tokens_stemmed     | Liste de mots avec stemming                                                | Texte (liste)          |
+| Open               | Prix d’ouverture du Dow Jones                                              | Numérique              |
+| Close              | Prix de clôture du Dow Jones                                               | Numérique              |
+| High               | Prix maximum de la journée                                                 | Numérique              |
+| Low                | Prix minimum de la journée                                                 | Numérique              |
+| Volume             | Volume de transactions                                                     | Numérique              |
+| Return_tomorrow    | Rendement du marché le lendemain                                           | Numérique              |
+| Target_tomorrow    | Direction du marché (1 = hausse, 0 = baisse)                               | Catégorielle (binaire) |
 
 ## Target Variable
 
