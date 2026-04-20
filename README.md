@@ -1,6 +1,6 @@
-# Project Title
+News-Based Stock Market Prediction
 
-⚠️ Replace this title with the **name of your project**
+
 
 ---
 
@@ -9,15 +9,17 @@
 Fill in the following information.
 
 - **Project Title:** [Insert project title]
-- **Group Name:** [Insert group name]
+- **Group Name:** Group 5
 - **Group Members:**  
-  - Student 1 – [Name]  
-  - Student 2 – [Name]  
-  - Student 3 – [Name]
+  - Student 1 – Alexia Jonquet
+  - Student 2 – Arooba Mushtaq
+  - Student 3 – Sania Mestari
+  - Student 4 – Vinosha Rajathurai
+
 
 - **Course Name:** AI In Finance
 - **Instructor:** Nicolas De Roux & Mohamed EL FAKIR
-- **Submission Date:** [Insert date]
+- **Submission Date:** 20/04/2026
 
 ---
 
